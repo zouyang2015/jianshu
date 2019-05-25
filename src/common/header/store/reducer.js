@@ -1,5 +1,5 @@
 import * as actionTypes from './constants'
-import { fromJS } from 'immutable'
+import { fromJS } from 'immutable' // immutable库生成immutable对象，不可更改
 
 // 1. immutable
 const defaultState = fromJS({
