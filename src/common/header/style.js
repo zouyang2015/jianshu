@@ -50,7 +50,7 @@ export const SearchWrapper = styled.div`
 	position: relative;
 	margin-top: 9px;
 	margin-left: 20px;
-	.iconfont {
+	.zoom {
 		position: absolute;
 		top: 4px;
 		right: 5px;
@@ -99,6 +99,43 @@ export const NavSearch = styled.input.attrs({
 		width: 160px;
 		transition: all .2s ease-out;
 	}
+`
+
+export const SearchInfo = styled.div`
+	position: absolute;
+	top: 56px;
+	left: 0;
+	width: 240px;
+	padding: 0 20px 20px 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,.2);
+`
+export const SearchInfoTitle = styled.div`
+	margin: 20px 0 15px 0;
+	line-height: 20px;
+	color: #969696;
+`
+export const SearchInfoSwitch = styled.span`
+	float: right;
+	font-size: 12px;
+	cursor: pointer;
+	.spin {
+		display: inline-block;
+		font-size: 12px;
+		margin-right: 2px;
+		transition: all .3s ease-in;
+		transform-origin: center center;
+	}
+`
+export const SearchInfoItem = styled.a`
+	display: block;
+	float: left;
+	padding: 5px;
+	line-height: 20px;
+	font-size: 12px;
+	border: 1px solid #dddddd;
+	color: #777777;
+	border-radius: 2px;
+	margin: 5px 5px 0 0;
 `
 
 export const Addition = styled.div`
