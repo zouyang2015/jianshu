@@ -1,20 +1,42 @@
 // import * as actionTypes from './constants'
 import { fromJS } from 'immutable' // immutable库生成immutable对象，不可更改
+import * as constants from './constants'
 
 const defaultState = fromJS({
-	topicList: [{
-		id: 1,
-		title: '社会热点',
-		imgUrl:'//upload.jianshu.io/collections/images/13/%E5%95%8A.png?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120/format/webp0'
-	},{
-		id: 2,
-		title: '手绘',
-		imgUrl:'//upload.jianshu.io/collections/images/39/332293730045332541.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120/format/webp'
-	}]
+	topicList: [],
+	articleList: [],
+	recommendList: [],
+	articlePage: 1,
+	showScroll: false
 })
+
+const changeHomeData = (state, action) => {
+	return state.merge({
+		topicList: fromJS(action.topicList),
+		articleList: fromJS(action.articleList),
+		recommendList: fromJS(action.recommendList)
+	})
+}
+
+const addHomeList = (state, action) => {
+	return state.merge({
+		'articleList': state.get('articleList').concat(fromJS(action.list)),
+		'articlePage': action.nextPage
+	})
+}
+
+const changeScroll = (state, action) => {
+	return state.set('showScroll', action.value)
+}
 
 export default (state = defaultState, action) => {
 	switch (action.type) {
+		case constants.CHANGE_HOME_DATA:
+			return changeHomeData(state, action)
+		case constants.ADD_HOME_LIST:
+			return addHomeList(state, action)
+		case constants.CHANGE_SCROLL:
+			return changeScroll(state, action)
 		default:
 			return state
 	}
